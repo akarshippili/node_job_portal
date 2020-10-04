@@ -1,0 +1,22 @@
+<%- include('partials/header'); -%>
+
+<% if(alljobs.length > 0) { %>
+
+    <% alljobs.forEach((ele)=>{ %>
+    <div style="text-align: center;margin: 20px 0px 20px 0px;">
+        <a href="/apply/<%= ele._id %>">
+            <h1 class="title"><%= ele.company %></h1>
+            <p class="snippet"><%= ele.title %></p>
+        </a>
+    </div>
+    <% }) %>
+<% }else { %>
+    <h2>No jobs Yet</h2>
+<% } %>
+
+
+
+
+
+
+<%- include('partials/footer'); -%>

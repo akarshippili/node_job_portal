@@ -1,0 +1,22 @@
+<%- include('partials/header'); -%>
+
+<% if(created.length > 0) { %>
+
+    <% created.forEach((ele)=>{ %>
+    <div style="text-align: center;margin: 20px 0px 20px 0px;">
+        <a href="/response/<%= ele._id %>">
+            <h1 class="title"><%= ele.company %></h1>
+            <p class="snippet"><%= ele.title %></p>
+        </a>
+    </div>
+    <% }) %>
+<% }else { %>
+    <h2>No jobs Yet</h2>
+<% } %>
+
+
+
+
+
+
+<%- include('partials/footer'); -%>

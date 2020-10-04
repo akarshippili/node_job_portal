@@ -1,0 +1,20 @@
+<%- include('partials/header'); -%>
+<!-- <h1 style="display: inline; text-align: center;"><%= job.company %>:</h1> -->
+<h1 style="text-align: center;margin-bottom: 50px;"><%= job.title %></h1>
+<% if(all_candidates.length>0) { %>
+    <table style="margin-bottom: 20px;">
+        <% all_candidates.forEach((ele)=>{ %>
+            <tr style="display: block; margin-bottom: 10px;">
+                <td><h2 style="display: inline;"><%= ele.name %></h2></td>
+                <td><h2 style="display: inline;"><%= ele.highest_qualification %></h2></td>
+                <td><h2 style="display: inline;"><%= ele.email %></h2></td>
+                <td><a href="<%= ele.cv_link %>"><h2 style="display: inline;">cv_link</h2></a></td>
+                <h1></h1>
+            </tr>
+        <% }) %>
+    </table>
+<% }else{ %>
+    <p>NO RESPONSE YET</p>
+<% } %>
+
+<%- include('partials/footer'); -%>

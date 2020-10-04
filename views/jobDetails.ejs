@@ -1,0 +1,44 @@
+<%- include('partials/header'); -%>
+<div class="details">
+    <h2><%= job.company %></h2>
+    <br>
+    <p><%= job.title %></p>
+    <br>
+    <p><%= job.salary %></p>
+    <br>
+    <p><%= job.description %></p>
+    <a class="apply" data-id="<%= job._id %>" data-company="<%= job.createdby %>">apply</a>
+</div>
+
+<script>
+    const apply = document.querySelector('a.apply');
+    apply.addEventListener('click', async (e)=>{
+    const endpoint = `/apply/${apply.dataset.doc}`;
+    const job_id = apply.dataset.id;
+    const job_company = apply.dataset.company;
+    try
+    {
+        const res = await fetch(endpoint,{
+        method:'POST',
+        body: JSON.stringify({ job_id,job_company }),
+        headers:{'Content-Type':'application/json'}
+        });
+        const data = await res.json();
+        console.log(data);
+        if(data.application)
+        {
+            location.assign('/sucessfully_applied');
+        }
+        // if(data)
+        // {
+        //     location.assign('/already_applied');
+        // }
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+})
+</script>
+
+<%- include('partials/footer'); -%>

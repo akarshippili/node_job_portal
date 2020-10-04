@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav>
+    <h1><a href="/">Connect</a></h1>
+    <ul>
+      <% if(comp){%>
+        <li>welcome,<%= comp.email %></li>
+        <li><a href="/create">create</a></li>
+        <li><a href="/created">created</a></li>
+        <li><a href="/logout" class="btn">logout</a></li>
+      <%} else if(student){%>
+        <li>welcome,<%= student.email %></li>
+        <li><a href="/apply">apply</a></li>
+        <li><a href="/applied">applied</a></li>
+        <li><a href="/details">details</a></li>
+        <li><a href="/logout" class="btn">logout</a></li>
+      <% }else{%>
+        <li><a href="/com/login">company login</a></li>
+        <li><a href="/com/signin" class="btn">company signin</a></li>
+        <li><a href="/student/login">student login</a></li>
+        <li><a href="/student/signin" class="btn">student signin</a></li>
+      <% } %>
+    </ul>
+  </nav>
+  
